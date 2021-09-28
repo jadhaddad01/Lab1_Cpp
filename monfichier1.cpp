@@ -1,12 +1,9 @@
-#include <iostream>
-#include <iomanip>
-#include <math.h>
-using namespace std;
+#include "monfichier1.h"
 
 int main()
 {
     // Nombre d'octets par type de valeur
-    cout << "Taille en octets d'un caractere: " << sizeof(char) << endl;
+    cout << "Taille en octets d'un caractere: " << sizeof(char) << endl; // on utilise sizeof pour déterminer
     cout << "Taille en octets d'un entier: " << sizeof(int) << endl;
     cout << "Taille en octets d'un réel: " << sizeof(float) << endl;
     cout << "Taille en octets d'un double: " << sizeof(double) << endl;
