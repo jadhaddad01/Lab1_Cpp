@@ -1,45 +1,39 @@
-/* Fonction principale main */
+// lab1.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
+//
+
 #include "monfichier2.h"
 
-int main(void)
+using namespace std;
+int comptSurface = 0;
+int comptVolume = 0;
+// const double Pi = 3.14159;
+
+int surface(double const &ray)
 {
+    comptSurface++;
+    cout << "La surface est: " << (Pi * pow(ray, 2)) << endl;
+    return comptSurface;
+}
+
+int volume(double const &ray, double const &haut)
+{
+    comptVolume++;
+    double surf = (Pi * pow(ray, 2));
+    cout << "Le volume est: " << (surf * haut) << endl;
+    return comptVolume;
+}
+
+char menu()
+{
+    cout << endl
+         << "Que aouhaitez - vous faire ?: " << endl;
+    cout << " - Calculer la surface du disque de rayon (Tapez 1): " << endl;
+    cout << " - Calculer le volume du cylindre de rayon et hauteur (Tapez 2): " << endl;
+    cout << " - Quittez le programme (Tapez 3): ";
     char choix;
-    int nvolume = 0;  //nombre de fois que la fonction volume a été lancee
-    int nsurface = 0; //nombre de fois que la fonction surface a été lancee
-    double rayon, hauteur;
+    cin >> choix;
+    cout << endl
+         << "Votre choix: " << choix << endl;
 
-    while (1)
-    {
-        choix = menu();
-        switch (choix)
-        {
-        case '1':
-            cout << endl
-                 << "Calcul de la surface :" << endl;
-            cout << "Donnez le rayon: ";
-            cin >> rayon;
-            nsurface = surface(rayon);
-            break;
-
-        case '2':
-            cout << endl
-                 << "Calcul du volume :" << endl;
-            cout << "Donnez le rayon: ";
-            cin >> rayon;
-            cout << "Donnez la hauteur: ";
-            cin >> hauteur;
-            nvolume = volume(rayon, hauteur);
-            break;
-
-        case '3':
-            cout << endl
-                 << "Sortie du programme" << endl;
-            cout << "La fonction volume a ete lancee " << nvolume << " fois" << endl;
-            cout << "La fonction surface a ete lancee " << nsurface << " fois" << endl;
-            exit(0);
-
-        default:
-            break;
-        }
-    }
+    return choix;
 }
